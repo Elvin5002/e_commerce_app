@@ -1,14 +1,14 @@
-import 'package:e_commerce_app/constants/app_colors.dart';
-import 'package:e_commerce_app/constants/app_icons.dart';
-import 'package:e_commerce_app/constants/app_radiuses.dart';
-import 'package:e_commerce_app/constants/app_texts.dart';
-import 'package:e_commerce_app/models/home_model.dart';
+import 'package:e_commerce_app/data/models/product_model.dart';
+import 'package:e_commerce_app/utils/constants/app_colors.dart';
+import 'package:e_commerce_app/utils/constants/app_icons.dart';
+import 'package:e_commerce_app/utils/constants/app_radiuses.dart';
+import 'package:e_commerce_app/utils/constants/app_texts.dart';
 import 'package:flutter/material.dart';
 
 class BottomNavBar extends StatelessWidget {
   const BottomNavBar({Key? key, required this.item}) : super(key: key);
 
-  final HomeModel item;
+  final ProductModel item;
 
   @override
   Widget build(BuildContext context) {
@@ -18,9 +18,8 @@ class BottomNavBar extends StatelessWidget {
         Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text(AppTexts.price),
             Text(
-              item.price,
+              '\$${item.price}',
               style: const TextStyle(color: AppColors.orange, fontSize: 22.0, fontWeight: FontWeight.w500),
             )
           ],

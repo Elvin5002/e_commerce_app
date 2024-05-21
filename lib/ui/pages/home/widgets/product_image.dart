@@ -1,5 +1,3 @@
-import 'package:e_commerce_app/constants/app_colors.dart';
-import 'package:e_commerce_app/constants/app_radiuses.dart';
 import 'package:e_commerce_app/ui/pages/home/widgets/product_fav_icon.dart';
 import 'package:flutter/material.dart';
 
@@ -17,8 +15,8 @@ class ProductImage extends StatelessWidget {
           width: 170,
           //padding: AppPaddings.a20,
           decoration: BoxDecoration(
-            color: AppColors.lightgrey, borderRadius: AppRadiuses.lrT10,
-            image: DecorationImage(image: AssetImage(image), fit: BoxFit.cover)
+            //color: AppColors.lightgrey, borderRadius: AppRadiuses.lrT10,
+            image: DecorationImage(image: NetworkImage(image))
           ),
           //child: Image.asset(image),
         ),

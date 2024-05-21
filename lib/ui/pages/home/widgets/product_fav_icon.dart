@@ -1,4 +1,4 @@
-import 'package:e_commerce_app/constants/app_icons.dart';
+import 'package:e_commerce_app/utils/constants/app_icons.dart';
 import 'package:flutter/material.dart';
 
 class ProductFavIcon extends StatefulWidget {

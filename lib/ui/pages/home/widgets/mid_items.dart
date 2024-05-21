@@ -1,10 +1,10 @@
-import 'package:e_commerce_app/constants/app_colors.dart';
-import 'package:e_commerce_app/constants/app_icons.dart';
-import 'package:e_commerce_app/constants/app_paddings.dart';
-import 'package:e_commerce_app/constants/app_radiuses.dart';
-import 'package:e_commerce_app/constants/app_text_styles.dart';
-import 'package:e_commerce_app/extentions/num_extentions.dart';
-import 'package:e_commerce_app/models/home_model.dart';
+import 'package:e_commerce_app/data/models/product_model.dart';
+import 'package:e_commerce_app/utils/constants/app_colors.dart';
+import 'package:e_commerce_app/utils/constants/app_icons.dart';
+import 'package:e_commerce_app/utils/constants/app_paddings.dart';
+import 'package:e_commerce_app/utils/constants/app_radiuses.dart';
+import 'package:e_commerce_app/utils/constants/app_text_styles.dart';
+import 'package:e_commerce_app/utils/extentions/num_extentions.dart';
 import 'package:e_commerce_app/ui/pages/home/widgets/product_image.dart';
 import 'package:e_commerce_app/ui/widgets/subtitle_icon.dart';
 import 'package:flutter/material.dart';
@@ -13,7 +13,7 @@ class MidItems extends StatelessWidget {
   const MidItems({Key? key, required this.onPress, required this.items})
       : super(key: key);
 
-  final HomeModel items;
+  final ProductModel items;
   final Function() onPress;
 
   @override
@@ -22,7 +22,7 @@ class MidItems extends StatelessWidget {
         onTap: onPress,
         child: Column(
           children: [
-            ProductImage(image: items.image),
+            ProductImage(image: items.image!),
             Container(
               //height: 150,
               padding: AppPaddings.a5,
@@ -31,11 +31,11 @@ class MidItems extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  SubtitleIcon(text: items.title),
-                  5.h,
                   Text(
-                    items.description,
+                    items.title!,
                     style: AppTextStyles.descStyle,
+                    maxLines: 3,
+                    //overflow: TextOverflow.ellipsis,
                   ),
                   5.h,
                   Row(
@@ -44,10 +44,12 @@ class MidItems extends StatelessWidget {
                       Row(
                         children: [
                           AppIcons.ratio,
-                          Text(items.ratio, style: AppTextStyles.ratioStyle)
+                          Text(items.rating!.rate.toString(),
+                              style: AppTextStyles.ratioStyle)
                         ],
                       ),
-                      Text(items.price, style: AppTextStyles.priceStyle)
+                      Text('\$${items.price}',
+                          style: AppTextStyles.priceStyle)
                     ],
                   )
                 ],

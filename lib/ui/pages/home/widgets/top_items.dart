@@ -1,7 +1,7 @@
-import 'package:e_commerce_app/constants/app_paddings.dart';
-import 'package:e_commerce_app/constants/app_radiuses.dart';
-import 'package:e_commerce_app/constants/app_text_styles.dart';
-import 'package:e_commerce_app/extentions/num_extentions.dart';
+import 'package:e_commerce_app/utils/constants/app_paddings.dart';
+import 'package:e_commerce_app/utils/constants/app_radiuses.dart';
+import 'package:e_commerce_app/utils/constants/app_text_styles.dart';
+import 'package:e_commerce_app/utils/extentions/num_extentions.dart';
 import 'package:e_commerce_app/ui/pages/home/widgets/shop_icon.dart';
 import 'package:flutter/material.dart';
 

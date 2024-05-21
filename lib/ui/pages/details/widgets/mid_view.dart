@@ -1,16 +1,18 @@
-import 'package:e_commerce_app/constants/app_colors.dart';
-import 'package:e_commerce_app/constants/app_icons.dart';
-import 'package:e_commerce_app/constants/app_texts.dart';
-import 'package:e_commerce_app/extentions/num_extentions.dart';
-import 'package:e_commerce_app/models/home_model.dart';
+import 'package:e_commerce_app/data/models/product_model.dart';
+import 'package:e_commerce_app/utils/constants/app_colors.dart';
+import 'package:e_commerce_app/utils/constants/app_icons.dart';
+import 'package:e_commerce_app/utils/constants/app_texts.dart';
+import 'package:e_commerce_app/utils/extentions/num_extentions.dart';
 import 'package:e_commerce_app/ui/pages/home/widgets/product_fav_icon.dart';
 import 'package:e_commerce_app/ui/widgets/subtitle_icon.dart';
 import 'package:flutter/material.dart';
 
+import '../../../../utils/constants/app_text_styles.dart';
+
 class MidView extends StatelessWidget {
   const MidView({Key? key, required this.item}) : super(key: key);
 
-  final HomeModel item;
+  final ProductModel item;
 
   @override
   Widget build(BuildContext context) {
@@ -18,12 +20,18 @@ class MidView extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       //mainAxisAlignment: MainAxisAlignment.start,
       children: [
-        SubtitleIcon(text: item.title),
-        10.h,
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text(item.description, style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),), 
+            SizedBox(
+              width: 300,
+              child: Text(
+                item.title!,
+                style: AppTextStyles.descStyle,
+                //maxLines: 3,
+                overflow: TextOverflow.ellipsis,
+              ),
+            ),
             const ProductFavIcon()
           ],
         ),
@@ -36,14 +44,14 @@ class MidView extends StatelessWidget {
               children: [
                 AppIcons.ratio,
                 Text(
-                  item.ratio,
+                  item.rating!.rate.toString(),
                   style: const TextStyle(
                     fontSize: 14.0,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
                 2.w,
-                const Text(AppTexts.review, style: TextStyle(fontSize: 12))
+                Text('(${item.rating!.count})', style: TextStyle(fontSize: 12))
               ],
             ),
             Container(
@@ -55,7 +63,7 @@ class MidView extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  item.purchasedCount,
+                  item.rating!.count.toString(),
                   style: const TextStyle(
                     fontSize: 14.0,
                     fontWeight: FontWeight.bold,
@@ -74,7 +82,7 @@ class MidView extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Text(
-                  item.stockCount,
+                  item.rating!.count.toString(),
                   style: const TextStyle(
                     fontSize: 14.0,
                     fontWeight: FontWeight.bold,

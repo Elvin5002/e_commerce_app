@@ -1,5 +1,5 @@
-import 'package:e_commerce_app/constants/app_colors.dart';
-import 'package:e_commerce_app/models/top_model.dart';
+import 'package:e_commerce_app/utils/constants/app_colors.dart';
+import 'package:e_commerce_app/data/models/top_model.dart';
 import 'package:flutter/material.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 

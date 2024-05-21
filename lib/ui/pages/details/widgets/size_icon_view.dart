@@ -1,6 +1,6 @@
-import 'package:e_commerce_app/constants/app_colors.dart';
-import 'package:e_commerce_app/constants/app_paddings.dart';
-import 'package:e_commerce_app/constants/app_radiuses.dart';
+import 'package:e_commerce_app/utils/constants/app_colors.dart';
+import 'package:e_commerce_app/utils/constants/app_paddings.dart';
+import 'package:e_commerce_app/utils/constants/app_radiuses.dart';
 import 'package:flutter/material.dart';
 
 class SizeIconView extends StatefulWidget {

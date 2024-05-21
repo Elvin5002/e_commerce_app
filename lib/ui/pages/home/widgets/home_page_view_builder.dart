@@ -1,4 +1,4 @@
-import 'package:e_commerce_app/models/top_model.dart';
+import 'package:e_commerce_app/data/models/top_model.dart';
 import 'package:e_commerce_app/ui/pages/home/widgets/top_items.dart';
 import 'package:flutter/material.dart';
 

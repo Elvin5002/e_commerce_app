@@ -1,41 +1,34 @@
-import 'package:e_commerce_app/constants/app_paddings.dart';
-import 'package:e_commerce_app/extentions/num_extentions.dart';
 import 'package:e_commerce_app/ui/pages/home/widgets/bottom_nav_bar.dart';
-import 'package:e_commerce_app/ui/pages/home/widgets/categories_view.dart';
-import 'package:e_commerce_app/ui/pages/home/widgets/mid_view.dart';
-import 'package:e_commerce_app/ui/pages/home/widgets/price_cutting_view.dart';
-import 'package:e_commerce_app/ui/pages/home/widgets/top_view.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import '../../../cubits/product/product_cubit.dart';
+import 'widgets/home_view.dart';
+import 'widgets/pages.dart';
 
-class HomePage extends StatefulWidget {
+class HomePage extends StatelessWidget {
   const HomePage({Key? key}) : super(key: key);
 
   @override
-  _HomePageState createState() => _HomePageState();
-}
-
-class _HomePageState extends State<HomePage> {
-  @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: const Color(0xfffafafa),
-      //appBar: TopView(),
-      //minimum: EdgeInsets.all(16.0),
-      body: Padding(
-      padding: AppPaddings.a20,
-      child: Column(
-        children: [
-          const TopView(),
-          20.h,
-          const PriceCuttingView(),
-          10.h,
-          const CategoriesView(),
-          10.h,
-          const MidView(),
-        ],
+    final cubit = context.read<ProductCubit>();
+    return SafeArea(
+      child: Scaffold(
+        body:StreamBuilder<int>(
+          initialData: 0,
+          stream: cubit.viewSubject.stream,
+          builder: (context, snapshot) => views[snapshot.data!]),
+          bottomNavigationBar: const BottomNavBar(),
+        // floatingActionButton: const BottomNavBar(),
+        // floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       ),
-    ),
-    bottomNavigationBar: const SafeArea(child: BottomNavBar()),
     );
   }
 }
+
+List<Widget> views = [
+  const HomeView(),
+  const Page1(),
+  const Page2(),
+  const Page3(),
+  const Page4()
+];

@@ -1,5 +1,5 @@
-import 'package:e_commerce_app/constants/app_assets.dart';
-import 'package:e_commerce_app/constants/app_texts.dart';
+import 'package:e_commerce_app/utils/constants/app_assets.dart';
+import 'package:e_commerce_app/utils/constants/app_texts.dart';
 
 class HomeModel {
   const HomeModel(
